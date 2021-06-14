@@ -16,9 +16,9 @@ before_script:
 script:
   - docker --version # print the version for logging
   - cd udagram-api/feeds
-  - docker build --build-arg POSTGRES_HOST --build-arg POSTGRES_USERNAME \
-    --build-arg POSTGRES_PASSWORD --build-arg POSTGRES_DB \
-    --build-arg AWS_BUCKET --build-arg AWS_REGION \
+  - docker build --build-arg POSTGRES_HOST --build-arg POSTGRES_USERNAME 
+    --build-arg POSTGRES_PASSWORD --build-arg POSTGRES_DB 
+    --build-arg AWS_BUCKET --build-arg AWS_REGION 
     --build-arg JWT_SECRET --build-arg URL -t feeds .
   - docker tag feeds supermike2020/udagram-feeds:latest
 
