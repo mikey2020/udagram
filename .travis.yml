@@ -29,6 +29,7 @@ script:
     --build-arg JWT_SECRET --build-arg URL -t users .
   - docker tag users supermike2020/udagram-users:latest
   - cd ..
+  - cd ..
   - cd udagram-frontend
   - docker build -t udagram-frontend .
   - docker tag udagram-frontend supermike2020/udagram-frontend:latest 
