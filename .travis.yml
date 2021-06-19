@@ -33,9 +33,12 @@ script:
   - cd udagram-frontend
   - docker build -t udagram-frontend .
   - docker tag udagram-frontend supermike2020/udagram-frontend:latest 
+  - cd ..
+  - docker build -t udagram-reverse-proxy .
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push supermike2020/udagram-feeds:latest
   - docker push supermike2020/udagram-users:latest
   - docker push supermike2020/udagram-frontend:latest
+  - docker push supermike2020/udagram-reverse-proxy:latest

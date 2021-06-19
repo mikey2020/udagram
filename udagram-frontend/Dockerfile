@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm install -g @ionic/cli && ionic build --prod
 
-FROM nginx:latest
+FROM nginx:alpine
 
 COPY --from=build /usr/local/app/www /usr/share/nginx/html
 
