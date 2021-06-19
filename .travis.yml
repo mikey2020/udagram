@@ -28,8 +28,13 @@ script:
     --build-arg AWS_BUCKET --build-arg AWS_REGION 
     --build-arg JWT_SECRET --build-arg URL -t users .
   - docker tag users supermike2020/udagram-users:latest
+  - cd ..
+  - cd udagram-frontend
+  - docker build -t udagram-frontend .
+  - docker tag udagram-frontend supermike2020/udagram-frontend:latest 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push supermike2020/udagram-feeds:latest
   - docker push supermike2020/udagram-users:latest
+  - docker push supermike2020/udagram-frontend:latest
