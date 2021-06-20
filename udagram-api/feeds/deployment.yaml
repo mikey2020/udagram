@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: feeds
+    labels:
+        app: feeds
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+          app: feeds
+  template:
+      metadata:
+          labels:
+              app: feeds
+      spec:
+          containers:
+          - name: udagram-feeds
+            image: supermike2020/udagram-feeds
+            ports:
+            - containerPort: 8080
+            livenessProbe:
+                httpGet:
+                    path: /health
+                    port: 8080
+                initialDelaySeconds: 3
+                periodSeconds: 3
