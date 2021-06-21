@@ -15,18 +15,18 @@ spec:
               app: feeds
       spec:
           containers:
-          image: supermike2020/udagram-feeds
-          - name: feeds
-            ports:
+          - image: supermike2020/udagram-feeds
+            name: feeds
             imagePullPolicy: Always          
             resources:
                 requests:
                     memory: "64Mi"
                     cpu: "250m"
                 limits:
-                  memory: "1024Mi"
-                  cpu: "500m"       
-            - containerPort: 8080
+                    memory: "1024Mi"
+                    cpu: "500m"       
+            ports:
+                - containerPort: 8080
             livenessProbe:
                 httpGet:
                     path: /health
