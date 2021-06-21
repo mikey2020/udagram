@@ -5,7 +5,6 @@ metadata:
     labels:
         app: feeds
 spec:
-  replicas: 1
   selector:
       matchLabels:
           app: feeds
