@@ -28,7 +28,7 @@ ENV AWS_PROFILE=$AWS_PROFILE
 ENV JWT_SECRET=$JWT_SECRET
 ENV URL=$URL
 
-RUN npm run tsc
+RUN npm run clean && npm run tsc
 
 EXPOSE 8080
 
